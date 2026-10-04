@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achaemenid | Ancient Empire, Modern Style</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            white: '#f5f5f5',
+                            gold: '#C5A059',
+                            clay: '#8c705a',
+                            gray: '#1a1a1a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+        }
+        
+        .hero-pattern {
+            background-image: radial-gradient(#ffffff15 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+        }
+
+        .image-hover-zoom {
+            overflow: hidden;
+        }
+        
+        .image-hover-zoom img {
+            transition: transform 0.7s ease;
+        }
+        
+        .image-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a88746;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button type="button" class="text-white hover:text-brand-gold transition-colors" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center justify-center flex-1 md:flex-none md:justify-start">
+                    <a href="#" class="font-serif text-2xl md:text-3xl font-bold tracking-[0.2em] text-white hover:text-brand-gold transition-colors">
+                        ACHAEMENID
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-12">
+                        <a href="#shop" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors pb-1 border-b-2 border-transparent hover:border-brand-gold">Shop</a>
+                        <a href="#collections" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors pb-1 border-b-2 border-transparent hover:border-brand-gold">Collections</a>
+                        <a href="#heritage" class="text-sm uppercase tracking-widest hover:text-brand-gold transition-colors pb-1 border-b-2 border-transparent hover:border-brand-gold">Heritage</a>
+                    </div>
+                </div>
+
+                <!-- Cart & Account -->
+                <div class="flex items-center space-x-6">
+                    <button class="text-white hover:text-brand-gold transition-colors hidden sm:block">
+                        <i data-feather="user"></i>
+                    </button>
+                    <button class="text-white hover:text-brand-gold transition-colors relative">
+                        <i data-feather="shopping-bag"></i>
+                        <span class="absolute -top-2 -right-2 bg-brand-gold text-black text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden bg-brand-black/95 backdrop-blur-md absolute w-full border-b border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#shop" class="block px-3 py-4 text-base font-medium tracking-widest uppercase hover:text-brand-gold" onclick="toggleMobileMenu()">Shop</a>
+                <a href="#collections" class="block px-3 py-4 text-base font-medium tracking-widest uppercase hover:text-brand-gold" onclick="toggleMobileMenu()">Collections</a>
+                <a href="#heritage" class="block px-3 py-4 text-base font-medium tracking-widest uppercase hover:text-brand-gold" onclick="toggleMobileMenu()">Heritage</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center hero-pattern pt-20">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-black/50 to-brand-black z-0"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <h2 class="text-brand-gold font-serif text-sm md:text-lg tracking-[0.3em] mb-4 uppercase">Est. 550 BCE</h2>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-glow">
+                ANCIENT EMPIRE,<br>
+                <span class="text-white">MODERN STYLE.</span>
+            </h1>
+            <p class="font-sans font-light text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                Premium minimalist streetwear rooted in the legacy of the greatest empire of antiquity. Reborn for the modern era.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#shop" class="bg-brand-gold text-black px-10 py-4 uppercase tracking-widest text-sm font-semibold hover:bg-white transition-colors duration-300">
+                    Explore Collection
+                </a>
+                <a href="#heritage" class="border border-brand-gold text-brand-gold px-10 py-4 uppercase tracking-widest text-sm font-semibold hover:bg-brand-gold hover:text-black transition-colors duration-300">
+                    Our Heritage
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="shop" class="py-24 bg-brand-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h3 class="text-brand-gold font-serif tracking-[0.2em] text-sm mb-2">FALL/WINTER</h3>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold">THE CORE COLLECTION</h2>
+                </div>
+                <a href="#" class="hidden md:flex items-center text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
+                    View All <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+                
+                <!-- Product 1 (Front) -->
+                <div class="group cursor-pointer">
+                    <div class="relative bg-brand-gray aspect-[4/5] mb-6 image-hover-zoom rounded-sm">
+                        <!-- Front View Mockup: Black shirt with subtle Cuneiform logo -->
+                        <img src="https://placehold.co/800x1000/1a1a1a/f5f5f5?text=Front:+Black+Tee\nCuneiform+Chest+Logo" alt="Cuneiform Heavyweight Tee - Front" class="w-full h-full object-cover">
+                        
+                        <!-- Badges -->
+                        <div class="absolute top-4 left-4 bg-brand-gold text-black text-xs font-bold px-3 py-1 uppercase tracking-wider">New</div>
+                        
+                        <!-- Quick Add -->
+                        <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+                            <button class="w-full bg-white text-black py-3 uppercase tracking-widest text-xs font-bold hover:bg-brand-gold transition-colors">Add to Cart - $45</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-serif text-xl mb-1 group-hover:text-brand-gold transition-colors">The Persepolis Tee</h4>
+                            <p class="text-gray-400 text-sm font-light">Heavyweight Cotton / Cuneiform Engraving</p>
+                        </div>
+                        <span class="font-medium">$45 USD</span>
+                    </div>
+                </div>
+
+                <!-- Product 2 (Back) -->
+                <div class="group cursor-pointer">
+                    <div class="relative bg-brand-gray aspect-[4/5] mb-6 image-hover-zoom rounded-sm">
+                        <!-- Back View Mockup: Black shirt with white Achaemenid Falcon -->
+                        <img src="https://placehold.co/800x1000/1a1a1a/f5f5f5?text=Back:+Black+Tee\nWhite+Falcon+Symbol" alt="Falcon Heavyweight Tee - Back" class="w-full h-full object-cover">
+                        
+                        <!-- Quick Add -->
+                        <div class="absolute bottom-0 left-0 w-full p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+                            <button class="w-full bg-white text-black py-3 uppercase tracking-widest text-xs font-bold hover:bg-brand-gold transition-colors">Add to Cart - $55</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-serif text-xl mb-1 group-hover:text-brand-gold transition-colors">The Royal Standard Hoodie</h4>
+                            <p class="text-gray-400 text-sm font-light">French Terry / White Falcon Emblem (Back)</p>
+                        </div>
+                        <span class="font-medium">$55 USD</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-12 text-center md:hidden">
+                <a href="#" class="inline-flex items-center text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors border border-gray-700 px-6 py-3">
+                    View All Collection
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heritage Section -->
+    <section id="heritage" class="py-24 bg-neutral-950 border-t border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image side -->
+                <div class="order-2 lg:order-1 relative">
+                    <div class="absolute -inset-4 border border-brand-gold/30 translate-x-4 translate-y-4 rounded-sm"></div>
+                    <img src="https://placehold.co/800x1000/0a0a0a/C5A059?text=Ruins+of+Persepolis\n(550+BCE)" alt="Achaemenid Heritage" class="relative z-10 w-full h-auto object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+                
+                <!-- Text side -->
+                <div class="order-1 lg:order-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="h-px w-12 bg-brand-gold"></div>
+                        <span class="text-brand-gold uppercase tracking-[0.2em] text-sm font-semibold">Our Heritage</span>
+                    </div>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8 leading-tight">
+                        ECHOES OF CYRUS THE GREAT.
+                    </h2>
+                    <div class="space-y-6 text-gray-400 font-light text-lg">
+                        <p>
+                            Established in 550 BCE, the Achaemenid Empire was the first Persian Empire, stretching across three continents. It was a realm defined by monumental architecture, intricate cuneiform script, and unparalleled cultural synthesis.
+                        </p>
+                        <p>
+                            We distill that ancient grandeur into modern, minimalist streetwear. The striking geometries of cuneiform and the timeless elegance of the royal falcon are reborn in high-quality, heavy-weight fabrics designed for the urban landscape.
+                        </p>
+                        <p>
+                            We do not just print clothes; we engrave history.
+                        </p>
+                    </div>
+                    <div class="mt-10">
+                        <a href="#" class="inline-flex items-center font-serif text-brand-gold hover:text-white transition-colors border-b border-brand-gold pb-1">
+                            Read the Full Story <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-black pt-20 pb-10 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="font-serif text-3xl font-bold tracking-[0.2em] text-white block mb-6">
+                        ACHAEMENID
+                    </a>
+                    <p class="text-gray-500 font-light max-w-sm mb-6">
+                        Ancient Empire, Modern Style. Minimalist apparel inspired by the legacy of 550 BCE.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-brand-gold transition-colors"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-brand-gold transition-colors"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-brand-gold transition-colors"><i data-feather="facebook"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-semibold uppercase tracking-widest text-sm mb-6">Shop</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">All Products</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">T-Shirts</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Hoodies & Sweats</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Accessories</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Help -->
+                <div>
+                    <h4 class="text-white font-semibold uppercase tracking-widest text-sm mb-6">Support</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <p>&copy; 2026 Achaemenid Apparel. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons & Scripts -->
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-brand-black/95', 'backdrop-blur-md', 'border-b', 'border-gray-800');
+            } else {
+                navbar.classList.remove('bg-brand-black/95', 'backdrop-blur-md', 'border-b', 'border-gray-800');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
